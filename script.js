@@ -24,7 +24,7 @@ function handleFiles(event) {
       fileContainer.appendChild(nameInput);
 
       const textArea = document.createElement("textarea");
-      textArea.value = numbers.join("\n"); // Nomor telepon disusun ke bawah (per baris)
+      textArea.value = numbers.join("\n"); // Setiap nomor disusun kebawah (per baris)
       fileContainer.appendChild(textArea);
 
       const downloadButton = document.createElement("button");
@@ -46,14 +46,14 @@ function extractNumbersFromVCF(content) {
   const numbers = [];
 
   lines.forEach((line) => {
-    const match = line.match(/TEL[:;](.+)/);
+    const match = line.match(/TEL[:;](.+)/); // Cari baris dengan nomor telepon
     if (match) {
-      const number = match[1].trim(); // Ambil nomor tanpa memodifikasi tanda "+"
+      const number = match[1].trim(); // Pastikan nomor tetap utuh (dengan tanda + jika ada)
       numbers.push(number);
     }
   });
 
-  return numbers;
+  return numbers; // Kembalikan semua nomor telepon dalam array
 }
 
 function downloadFile(fileName, content) {
