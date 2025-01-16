@@ -24,7 +24,7 @@ function handleFiles(event) {
       fileContainer.appendChild(nameInput);
 
       const textArea = document.createElement("textarea");
-      textArea.value = numbers.join(" ");
+      textArea.value = numbers.join("\n"); // Nomor telepon disusun ke bawah (per baris)
       fileContainer.appendChild(textArea);
 
       const downloadButton = document.createElement("button");
